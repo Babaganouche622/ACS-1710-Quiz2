@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWAPI API</title>
+</head>
+{% block content %}
+<body>
+    <main>
+        <header>
+            <h1>Welcome to my starwars info check!</h1>
+            <h2>Pick a category and select a number, I will send you the information stored.</h2>
+        </header>
+        <form action="/" method="GET">
+            <fieldset>
+                <legend>Your Info:</legend>
+                
+                <p>
+                    <label>
+                        Pick your category:
+                        <select name="info_categories">
+                            <option value="people">People</option>
+                            <option value="planets">Planets</option>
+                            <option value="vehicles">Vehicles</option>
+                            <option value="starships">Starships</option>
+                            <option value="films">Films</option>
+                            <option value="species">Species</option>
+                        </select>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Enter a number:
+        
+                        <input type="number" name="index" min="1" value="1">
+                    </label>
+                </p>
+        
+                <button type="submit">STAR WARS</button>
+            </fieldset>
+        </form>
+        <section id="form_results">
+            <p>
+                Here is your search result:
+            </p>
+            <!-- TODO: Use a for loop to show each GIF separately in an img tag (and place each one in a 
+                separate p tag to show on separate lines). You can get the GIF's image URL by using: 
+                gif['media'][0]['gif']['url'] -->
+        
+            <p>
+                {% for item in display_info %}
+                    {{item}}<br><br>
+                {% endfor %}
+            </p>
+        </section>
+    </main>
+    
+</body>
+{% endblock %}
+</html>
